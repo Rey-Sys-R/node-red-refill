@@ -1,5 +1,71 @@
 [
     {
+        "id": "a88cb494492b6c5a",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d9bd77441f6f4933",
+        "type": "group",
+        "z": "a88cb494492b6c5a",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "233ea054135edd65",
+            "af3a51273072d2ee",
+            "b5b519538fe23b8a",
+            "e6b8cb77b62e2dca",
+            "803e47cf4a73f578",
+            "94e7d87de0c98276",
+            "ed3e090de5885cb7",
+            "109d8d07e17b5845",
+            "1e51bc6d784b17ba",
+            "610b7f9a4bc49f56",
+            "15d2746e47b6dd43",
+            "96b2081e6f047cf9",
+            "594432e209687cc5",
+            "6e2889d84fb3044a",
+            "02a807847f8f2db6",
+            "c96f04350c83eff6",
+            "fd3dbc20f3457fc6",
+            "7e7c987098e468c4",
+            "342c2720095825aa",
+            "30d053e5bd1f7cfa",
+            "56bf4bac37a81157",
+            "6a3884b5990c365c",
+            "5443c085f5c8bb3c",
+            "61432ebe9ea854f8",
+            "a694c29055100aed",
+            "ee8bfc89dbfbc6f0",
+            "c34f379436f3bead",
+            "3b99e252e52823e0",
+            "72d25fd75932ec9f",
+            "50e4123553640497",
+            "bda1b4b2ed9878eb",
+            "659cd7cf16a2ae5e",
+            "0bf4ba1f4519bf0c",
+            "a4daa894592ad9ed",
+            "acaa2cdd2b43dc44",
+            "d3c2dd989e26d16c",
+            "872da3c91fd8ee07",
+            "5ac62d0d3e84b3d1"
+        ],
+        "x": -16,
+        "y": -1,
+        "w": 2052,
+        "h": 722
+    },
+    {
         "id": "233ea054135edd65",
         "type": "uibuilder",
         "z": "a88cb494492b6c5a",
@@ -27,5 +93,838 @@
             [],
             []
         ]
+    },
+    {
+        "id": "af3a51273072d2ee",
+        "type": "rpi-gpio in",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "IR Sensor",
+        "pin": "17",
+        "intype": "up",
+        "debounce": "25",
+        "read": false,
+        "bcm": true,
+        "x": 70,
+        "y": 260,
+        "wires": [
+            [
+                "803e47cf4a73f578",
+                "ed3e090de5885cb7"
+            ]
+        ]
+    },
+    {
+        "id": "b5b519538fe23b8a",
+        "type": "inject",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "Simulate Sensor (1)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "x": 300,
+        "y": 370,
+        "wires": [
+            [
+                "bda1b4b2ed9878eb"
+            ]
+        ]
+    },
+    {
+        "id": "e6b8cb77b62e2dca",
+        "type": "inject",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "Simulate Sensor (0)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "str",
+        "x": 300,
+        "y": 470,
+        "wires": [
+            [
+                "bda1b4b2ed9878eb"
+            ]
+        ]
+    },
+    {
+        "id": "803e47cf4a73f578",
+        "type": "debug",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "debug 27",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "94e7d87de0c98276",
+        "type": "change",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 240,
+        "wires": [
+            [
+                "1e51bc6d784b17ba",
+                "bda1b4b2ed9878eb"
+            ]
+        ]
+    },
+    {
+        "id": "ed3e090de5885cb7",
+        "type": "switch",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 320,
+        "y": 280,
+        "wires": [
+            [
+                "94e7d87de0c98276"
+            ],
+            [
+                "109d8d07e17b5845"
+            ]
+        ]
+    },
+    {
+        "id": "109d8d07e17b5845",
+        "type": "change",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 300,
+        "wires": [
+            [
+                "1e51bc6d784b17ba",
+                "bda1b4b2ed9878eb"
+            ]
+        ]
+    },
+    {
+        "id": "1e51bc6d784b17ba",
+        "type": "debug",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "debug 28",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "610b7f9a4bc49f56",
+        "type": "switch",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "Switch on type",
+        "property": "payload.type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "button1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "button2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "button3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "button4",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "button5",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "button6",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 6,
+        "x": 1000,
+        "y": 260,
+        "wires": [
+            [
+                "fd3dbc20f3457fc6"
+            ],
+            [
+                "15d2746e47b6dd43"
+            ],
+            [
+                "96b2081e6f047cf9"
+            ],
+            [
+                "c34f379436f3bead"
+            ],
+            [
+                "56bf4bac37a81157"
+            ],
+            [
+                "6a3884b5990c365c"
+            ]
+        ]
+    },
+    {
+        "id": "15d2746e47b6dd43",
+        "type": "function",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "Button 2 Action 250 ml normal",
+        "func": "msg.payload = 5\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1410,
+        "y": 160,
+        "wires": [
+            [
+                "594432e209687cc5",
+                "30d053e5bd1f7cfa"
+            ]
+        ]
+    },
+    {
+        "id": "96b2081e6f047cf9",
+        "type": "function",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "Button 3 Action 250 ml cold",
+        "func": "msg.payload = 3\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1400,
+        "y": 220,
+        "wires": [
+            [
+                "6e2889d84fb3044a",
+                "02a807847f8f2db6"
+            ]
+        ]
+    },
+    {
+        "id": "594432e209687cc5",
+        "type": "debug",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "Debug Button 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1780,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "6e2889d84fb3044a",
+        "type": "debug",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "Debug Button 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1700,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "02a807847f8f2db6",
+        "type": "function",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "Set Relay Time",
+        "func": "\nlet pin_IR = 17;\nlet pin_Relay = 18;\nlet count = 0;\nlet timer = msg.payload * 1000;\nlet counting = false;\nlet prevCount = 0;\nlet state_IR = 0;\n\nconst IR = new onoff.Gpio(pin_IR, 'in', 'both');\nconst Relay = new onoff.Gpio(pin_Relay, 'out');\n\nfunction readIR() {\n    if (IR.readSync() === 1) {\n        return 1;\n    }\n    else {\n        return 0;\n    }\n}\n\nfunction writeRelay(value) {\n    if (value === 'ON') {\n        Relay.writeSync(1);\n    }\n    else {\n        Relay.writeSync(0);\n    }\n}\n\nstate_IR = IR.readSync();\nprevCount = Date.now();\ncount = 0;\n\nwhile (count < timer) {\n    state_IR = IR.readSync();\n    if (state_IR === 1) {\n        if (!counting) {\n            counting = true;\n            prevCount = Date.now() - count;\n        }\n        count = Date.now() - prevCount;\n        Relay.writeSync(1);\n    }\n    else {\n        if (counting) {\n            counting = false;\n        }\n        Relay.writeSync(0);\n    }\n    // setTimeout(() => {\n    //     count += 10;\n    // }, 10);\n}\n\nRelay.writeSync(0);\n\nmsg.payload = 'done'\n\n\nreturn msg",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "onoff",
+                "module": "onoff"
+            }
+        ],
+        "x": 1700,
+        "y": 240,
+        "wires": [
+            [
+                "c96f04350c83eff6",
+                "acaa2cdd2b43dc44"
+            ]
+        ]
+    },
+    {
+        "id": "c96f04350c83eff6",
+        "type": "debug",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "debug 29",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1890,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "fd3dbc20f3457fc6",
+        "type": "function",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "Button 1 Action 250 ml hot",
+        "func": "msg.payload = 4\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1410,
+        "y": 120,
+        "wires": [
+            [
+                "7e7c987098e468c4",
+                "342c2720095825aa"
+            ]
+        ]
+    },
+    {
+        "id": "7e7c987098e468c4",
+        "type": "function",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "Set Relay Time",
+        "func": "\nlet pin_IR = 17;\nlet pin_Relay = 18;\nlet count = 0;\nlet timer = msg.payload * 1000;\nlet counting = false;\nlet prevCount = 0;\nlet state_IR = 0;\n\nconst IR = new onoff.Gpio(pin_IR, 'in', 'both');\nconst Relay = new onoff.Gpio(pin_Relay, 'out');\n\nfunction readIR() {\n    if (IR.readSync() === 1) {\n        return 1;\n    }\n    else {\n        return 0;\n    }\n}\n\nfunction writeRelay(value) {\n    if (value === 'ON') {\n        Relay.writeSync(1);\n    }\n    else {\n        Relay.writeSync(0);\n    }\n}\n\nstate_IR = IR.readSync();\nprevCount = Date.now();\ncount = 0;\n\nwhile (count < timer) {\n    state_IR = IR.readSync();\n    if (state_IR === 1) {\n        if (!counting) {\n            counting = true;\n            prevCount = Date.now() - count;\n        }\n        count = Date.now() - prevCount;\n        Relay.writeSync(1);\n    }\n    else {\n        if (counting) {\n            counting = false;\n        }\n        Relay.writeSync(0);\n    }\n    // setTimeout(() => {\n    //     count += 10;\n    // }, 10);\n}\n\nRelay.writeSync(0);\n\nmsg.payload = 'done'\n\n\nreturn msg",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "onoff",
+                "module": "onoff"
+            }
+        ],
+        "x": 1705.6666259765625,
+        "y": 85.6666259765625,
+        "wires": [
+            [
+                "0bf4ba1f4519bf0c"
+            ]
+        ]
+    },
+    {
+        "id": "342c2720095825aa",
+        "type": "debug",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "debug button 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1720,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "30d053e5bd1f7cfa",
+        "type": "function",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "Set Relay Time",
+        "func": "\nlet pin_IR = 17;\nlet pin_Relay = 18;\nlet count = 0;\nlet timer = msg.payload * 1000;\nlet counting = false;\nlet prevCount = 0;\nlet state_IR = 0;\n\nconst IR = new onoff.Gpio(pin_IR, 'in', 'both');\nconst Relay = new onoff.Gpio(pin_Relay, 'out');\n\nfunction readIR() {\n    if (IR.readSync() === 1) {\n        return 1;\n    }\n    else {\n        return 0;\n    }\n}\n\nfunction writeRelay(value) {\n    if (value === 'ON') {\n        Relay.writeSync(1);\n    }\n    else {\n        Relay.writeSync(0);\n    }\n}\n\nstate_IR = IR.readSync();\nprevCount = Date.now();\ncount = 0;\n\nwhile (count < timer) {\n    state_IR = IR.readSync();\n    if (state_IR === 1) {\n        if (!counting) {\n            counting = true;\n            prevCount = Date.now() - count;\n        }\n        count = Date.now() - prevCount;\n        Relay.writeSync(1);\n    }\n    else {\n        if (counting) {\n            counting = false;\n        }\n        Relay.writeSync(0);\n    }\n    // setTimeout(() => {\n    //     count += 10;\n    // }, 10);\n}\n\nRelay.writeSync(0);\n\nmsg.payload = 'done'\n\n\nreturn msg",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "onoff",
+                "module": "onoff"
+            }
+        ],
+        "x": 1780,
+        "y": 160,
+        "wires": [
+            [
+                "a4daa894592ad9ed"
+            ]
+        ]
+    },
+    {
+        "id": "56bf4bac37a81157",
+        "type": "function",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "Button 5 Action 500 ml normal",
+        "func": "msg.payload = 20",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1290,
+        "y": 400,
+        "wires": [
+            [
+                "5443c085f5c8bb3c",
+                "50e4123553640497"
+            ]
+        ]
+    },
+    {
+        "id": "6a3884b5990c365c",
+        "type": "function",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "Button 6 Action 500 ml cold",
+        "func": "msg.payload = 22\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 480,
+        "wires": [
+            [
+                "61432ebe9ea854f8",
+                "a694c29055100aed"
+            ]
+        ]
+    },
+    {
+        "id": "5443c085f5c8bb3c",
+        "type": "debug",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "Debug Button 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1640,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "61432ebe9ea854f8",
+        "type": "debug",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "Debug Button 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1640,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "a694c29055100aed",
+        "type": "function",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "Set Relay Time",
+        "func": "\nlet pin_IR = 17;\nlet pin_Relay = 18;\nlet count = 0;\nlet timer = msg.payload * 1000;\nlet counting = false;\nlet prevCount = 0;\nlet state_IR = 0;\n\nconst IR = new onoff.Gpio(pin_IR, 'in', 'both');\nconst Relay = new onoff.Gpio(pin_Relay, 'out');\n\nfunction readIR() {\n    if (IR.readSync() === 1) {\n        return 1;\n    }\n    else {\n        return 0;\n    }\n}\n\nfunction writeRelay(value) {\n    if (value === 'ON') {\n        Relay.writeSync(1);\n    }\n    else {\n        Relay.writeSync(0);\n    }\n}\n\nstate_IR = IR.readSync();\nprevCount = Date.now();\ncount = 0;\n\nwhile (count < timer) {\n    state_IR = IR.readSync();\n    if (state_IR === 1) {\n        if (!counting) {\n            counting = true;\n            prevCount = Date.now() - count;\n        }\n        count = Date.now() - prevCount;\n        Relay.writeSync(1);\n    }\n    else {\n        if (counting) {\n            counting = false;\n        }\n        Relay.writeSync(0);\n    }\n    // setTimeout(() => {\n    //     count += 10;\n    // }, 10);\n}\n\nRelay.writeSync(0);\n\nmsg.payload = 'done'\n\n\nreturn msg",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "onoff",
+                "module": "onoff"
+            }
+        ],
+        "x": 1640,
+        "y": 520,
+        "wires": [
+            [
+                "ee8bfc89dbfbc6f0",
+                "5ac62d0d3e84b3d1"
+            ]
+        ]
+    },
+    {
+        "id": "ee8bfc89dbfbc6f0",
+        "type": "debug",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "debug 33",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1840,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "c34f379436f3bead",
+        "type": "function",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "Button 4 Action 500 ml hot",
+        "func": "msg.payload = 10\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1270,
+        "y": 340,
+        "wires": [
+            [
+                "3b99e252e52823e0",
+                "72d25fd75932ec9f"
+            ]
+        ]
+    },
+    {
+        "id": "3b99e252e52823e0",
+        "type": "function",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "Set Relay Time",
+        "func": "\nlet pin_IR = 17;\nlet pin_Relay = 18;\nlet count = 0;\nlet timer = msg.payload * 1000;\nlet counting = false;\nlet prevCount = 0;\nlet state_IR = 0;\n\nconst IR = new onoff.Gpio(pin_IR, 'in', 'both');\nconst Relay = new onoff.Gpio(pin_Relay, 'out');\n\nfunction readIR() {\n    if (IR.readSync() === 1) {\n        return 1;\n    }\n    else {\n        return 0;\n    }\n}\n\nfunction writeRelay(value) {\n    if (value === 'ON') {\n        Relay.writeSync(1);\n    }\n    else {\n        Relay.writeSync(0);\n    }\n}\n\nstate_IR = IR.readSync();\nprevCount = Date.now();\ncount = 0;\n\nwhile (count < timer) {\n    state_IR = IR.readSync();\n    if (state_IR === 1) {\n        if (!counting) {\n            counting = true;\n            prevCount = Date.now() - count;\n        }\n        count = Date.now() - prevCount;\n        Relay.writeSync(1);\n    }\n    else {\n        if (counting) {\n            counting = false;\n        }\n        Relay.writeSync(0);\n    }\n    // setTimeout(() => {\n    //     count += 10;\n    // }, 10);\n}\n\nRelay.writeSync(0);\n\nmsg.payload = 'done'\n\n\nreturn msg",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "onoff",
+                "module": "onoff"
+            }
+        ],
+        "x": 1640,
+        "y": 340,
+        "wires": [
+            [
+                "d3c2dd989e26d16c"
+            ]
+        ]
+    },
+    {
+        "id": "72d25fd75932ec9f",
+        "type": "debug",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1640,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "50e4123553640497",
+        "type": "function",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "Set Relay Time",
+        "func": "\nlet pin_IR = 17;\nlet pin_Relay = 18;\nlet count = 0;\nlet timer = msg.payload * 1000;\nlet counting = false;\nlet prevCount = 0;\nlet state_IR = 0;\n\nconst IR = new onoff.Gpio(pin_IR, 'in', 'both');\nconst Relay = new onoff.Gpio(pin_Relay, 'out');\n\nfunction readIR() {\n    if (IR.readSync() === 1) {\n        return 1;\n    }\n    else {\n        return 0;\n    }\n}\n\nfunction writeRelay(value) {\n    if (value === 'ON') {\n        Relay.writeSync(1);\n    }\n    else {\n        Relay.writeSync(0);\n    }\n}\n\nstate_IR = IR.readSync();\nprevCount = Date.now();\ncount = 0;\n\nwhile (count < timer) {\n    state_IR = IR.readSync();\n    if (state_IR === 1) {\n        if (!counting) {\n            counting = true;\n            prevCount = Date.now() - count;\n        }\n        count = Date.now() - prevCount;\n        Relay.writeSync(1);\n    }\n    else {\n        if (counting) {\n            counting = false;\n        }\n        Relay.writeSync(0);\n    }\n    // setTimeout(() => {\n    //     count += 10;\n    // }, 10);\n}\n\nRelay.writeSync(0);\n\nmsg.payload = 'done'\n\n\nreturn msg",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "onoff",
+                "module": "onoff"
+            }
+        ],
+        "x": 1660,
+        "y": 440,
+        "wires": [
+            [
+                "872da3c91fd8ee07"
+            ]
+        ]
+    },
+    {
+        "id": "bda1b4b2ed9878eb",
+        "type": "uibuilder",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "",
+        "topic": "",
+        "url": "testing-full",
+        "okToGo": true,
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "templateFolder": "blank",
+        "extTemplate": "",
+        "showfolder": false,
+        "reload": false,
+        "sourceFolder": "src",
+        "deployedVersion": "6.8.2",
+        "showMsgUib": false,
+        "title": "",
+        "descr": "",
+        "x": 810,
+        "y": 280,
+        "wires": [
+            [
+                "610b7f9a4bc49f56"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "659cd7cf16a2ae5e",
+        "type": "link in",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "link in 2",
+        "links": [
+            "0bf4ba1f4519bf0c",
+            "a4daa894592ad9ed",
+            "acaa2cdd2b43dc44",
+            "d3c2dd989e26d16c",
+            "872da3c91fd8ee07",
+            "5ac62d0d3e84b3d1"
+        ],
+        "x": 625,
+        "y": 420,
+        "wires": [
+            [
+                "bda1b4b2ed9878eb"
+            ]
+        ]
+    },
+    {
+        "id": "0bf4ba1f4519bf0c",
+        "type": "link out",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "link out 5",
+        "mode": "link",
+        "links": [
+            "659cd7cf16a2ae5e"
+        ],
+        "x": 1995,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "a4daa894592ad9ed",
+        "type": "link out",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "link out 7",
+        "mode": "link",
+        "links": [
+            "659cd7cf16a2ae5e"
+        ],
+        "x": 1985,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "acaa2cdd2b43dc44",
+        "type": "link out",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "link out 8",
+        "mode": "link",
+        "links": [
+            "659cd7cf16a2ae5e"
+        ],
+        "x": 1965,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "d3c2dd989e26d16c",
+        "type": "link out",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "link out 9",
+        "mode": "link",
+        "links": [
+            "659cd7cf16a2ae5e"
+        ],
+        "x": 1785,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "872da3c91fd8ee07",
+        "type": "link out",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "link out 10",
+        "mode": "link",
+        "links": [
+            "659cd7cf16a2ae5e"
+        ],
+        "x": 1885,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "5ac62d0d3e84b3d1",
+        "type": "link out",
+        "z": "a88cb494492b6c5a",
+        "g": "d9bd77441f6f4933",
+        "name": "link out 11",
+        "mode": "link",
+        "links": [
+            "659cd7cf16a2ae5e"
+        ],
+        "x": 1885,
+        "y": 520,
+        "wires": []
     }
 ]
